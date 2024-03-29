@@ -1,7 +1,21 @@
 <mvc:View controllerName="com.sap.marketplaceproject.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+	<Button text="To the second Page" press="onToPage2"/>
+<List
+		items="{GeneralModel>/Dati}"
+		headerText="Products">
+		<ObjectListItem
+			title="{GeneralModel>DescMag}"
+			type="Active"
+			number="{
+				parts:[{path:'GeneralModel>PrezzoldMercMag'}],
+				type: 'sap.ui.model.type.Currency',
+				formatOptions: {showMeasure: false}
+			}"
+			numberUnit="EURO">
+			<ObjectAttribute text="Quantita disponibile: {GeneralModel>QuantdispMercMag}" />
+			<ObjectAttribute text="Descrizione: {GeneralModel>NoteMercMag}" />
+		</ObjectListItem>
+	</List>
 </mvc:View>

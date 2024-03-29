@@ -44,7 +44,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.122.1",
       "libs": {
@@ -94,21 +94,34 @@
       },
       "routes": [
         {
-          "name": "RouteView1",
+          "name": "Page1",
           "pattern": ":?query:",
           "target": [
-            "TargetView1"
+            "Page1"
+          ]
+        },
+        {
+          "name": "Page2",
+          "pattern": ":?query:",
+          "target": [
+            "Page2"
           ]
         }
       ],
       "targets": {
-        "TargetView1": {
+        "Page1": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "View1",
           "viewName": "View1"
+        },
+        "Page2": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "ProfileView"
         }
+        
       }
     },
     "rootView": {
