@@ -102,7 +102,7 @@
         },
         {
           "name": "Page2",
-          "pattern": ":?query:",
+          "pattern": "Page2",
           "target": [
             "Page2"
           ]
