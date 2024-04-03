@@ -25,7 +25,8 @@
 		items="{GeneralModel>/Dati}"
 		headerText="Products"
 		id="List1"
-		class="sapUiTinyMargin">
+		class="sapUiTinyMargin"
+		>
 					<headerToolbar>
          <Toolbar>
             <Title text="{i18n>PRODOTTI}"/>
@@ -37,7 +38,9 @@
       </headerToolbar>
 		<ObjectListItem
 			title="{GeneralModel>DescMag}"
-			type="Active"
+			type="Navigation"
+			               
+                press=".onPress" 
 			number="{
 				parts:[{path:'GeneralModel>PrezzoldMercMag'}],
 				type: 'sap.ui.model.type.Currency',

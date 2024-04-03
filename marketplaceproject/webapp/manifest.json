@@ -106,6 +106,13 @@
           "target": [
             "Page2"
           ]
+        },
+        {
+          "name": "Product",
+          "pattern": "Product/{MerciPath}",
+          "target": [
+            "Product"
+          ]
         }
       ],
       "targets": {
@@ -120,6 +127,12 @@
           "transition": "slide",
           "clearControlAggregation": false,
           "viewName": "ProfileView"
+        },
+        "Product": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "Product"
         }
         
       }

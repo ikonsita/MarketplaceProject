@@ -31,6 +31,13 @@ sap.ui.define([
                 this.getOwnerComponent().getRouter().navTo("Page2");
             },
 
+            onPress(oEvent) {
+                const oItem = oEvent.getSource();
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.navTo("Product", {
+                    MerciPath: window.encodeURIComponent(oItem.getBindingContext("GeneralModel").getPath().substr(1))
+                });
+        },
             onFilterInvoices(oEvent) {
                 // build filter array
                 const aFilter = [];
