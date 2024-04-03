@@ -1,10 +1,40 @@
 <mvc:View controllerName="com.sap.marketplaceproject.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-	<Button text="To the second Page" press="onToPage2"/>
+    xmlns="sap.m"
+	xmlns:tnt="sap.tnt">
+	<ScrollContainer vertical="true" horizontal="false" height="100%">
+		<tnt:ToolHeader id="toolheader1" class="sapUiTinyMargin">
+			<Title text="IKONSITALIA MARKETPLACE" wrapping="false">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="Disappear"/>
+				</layoutData>
+			</Title>
+			<ToolbarSpacer />
+			<OverflowToolbarButton icon="sap-icon://cart" type="Transparent" tooltip="Action 1" text="Action 1"/>
+			<Avatar src="test-resources/sap/tnt/images/Woman_avatar_01.png" displaySize="XS" press="onToPage2" tooltip="Profile">
+				<layoutData>
+					<OverflowToolbarLayoutData priority="NeverOverflow"/>
+				</layoutData>
+			</Avatar>
+		</tnt:ToolHeader>
+
+
+
+
 <List
 		items="{GeneralModel>/Dati}"
-		headerText="Products">
+		headerText="Products"
+		id="List1"
+		class="sapUiTinyMargin">
+					<headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>PRODOTTI}"/>
+            <ToolbarSpacer/>
+            <SearchField 
+               width="50%" 
+               search=".onFilterInvoices"/>
+         </Toolbar>
+      </headerToolbar>
 		<ObjectListItem
 			title="{GeneralModel>DescMag}"
 			type="Active"
@@ -14,8 +44,10 @@
 				formatOptions: {showMeasure: false}
 			}"
 			numberUnit="EURO">
+
 			<ObjectAttribute text="Quantita disponibile: {GeneralModel>QuantdispMercMag}" />
 			<ObjectAttribute text="Descrizione: {GeneralModel>NoteMercMag}" />
 		</ObjectListItem>
 	</List>
+		</ScrollContainer>
 </mvc:View>

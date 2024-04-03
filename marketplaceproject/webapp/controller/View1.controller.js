@@ -1,10 +1,12 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("com.sap.marketplaceproject.controller.View1", {
@@ -27,6 +29,20 @@ sap.ui.define([
 
             onToPage2 : function () {
                 this.getOwnerComponent().getRouter().navTo("Page2");
+            },
+
+            onFilterInvoices(oEvent) {
+                // build filter array
+                const aFilter = [];
+                const sQuery = oEvent.getParameter("query");
+                if (sQuery) {
+                    aFilter.push(new Filter("DescMag", FilterOperator.Contains, sQuery));
+                }
+    
+                // filter binding
+                const oList = this.byId("List1");
+                const oBinding = oList.getBinding("items");
+                oBinding.filter(aFilter);
             }
 
 
