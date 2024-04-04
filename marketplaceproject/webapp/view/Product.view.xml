@@ -13,14 +13,12 @@
 			formatOptions: {showMeasure: false}
 		}"
 		numberUnit="EUR"
-		class="sapUiResponsivePadding--header" >
-        		<statuses>
-			<ObjectStatus
-                icon="sap-icon://cart-3"
-				text="Aggiungi al carrello"
-				state="Success"
-                press="" />
-		</statuses>
+		class="sapUiResponsivePadding--header" 
+		icon="sap-icon://cart-3"
+		iconActive="true"
+		iconPress="onAddToCart"
+		>
+        <ObjectAttribute text="ID Prodotto: {GeneralModel>IdMerci}" />
 		<ObjectAttribute text="Quantità in magazzino: {GeneralModel>QuantdispMercMag}" />
 		<ObjectAttribute text="Categoria: {GeneralModel>CategMercMag}" />
 		<ObjectAttribute text="Peso: {GeneralModel>PesoMercMag}" />

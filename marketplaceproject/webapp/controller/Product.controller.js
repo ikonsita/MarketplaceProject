@@ -2,12 +2,13 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-    "sap/ui/core/routing/History"
+    "sap/ui/core/routing/History",
+    'sap/m/MessageToast'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator, History) {
+    function (Controller, Filter, FilterOperator, History, MessageToast) {
         "use strict";
 
         return Controller.extend("com.sap.marketplaceproject.controller.Product", {
@@ -33,6 +34,13 @@ sap.ui.define([
                     const oRouter = this.getOwnerComponent().getRouter();
                     oRouter.navTo("Page1", {}, true);
                 }
+            },
+
+           onAddToCart(){
+                var merci = this.getOwnerComponent().getModel("CartModel").getProperty("/IdMerci");
+                console.log();
+                console.log(this.getOwnerComponent().getModel("CartModel"));
+                MessageToast.show('Product added to cart');
             }
         });
     });

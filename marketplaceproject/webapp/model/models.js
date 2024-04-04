@@ -23,6 +23,16 @@ sap.ui.define([
         createGeneralModel: function() {
 			var oModel = new JSONModel({"Dati": []});
 			return oModel;
-		}
+		},
+
+        createCartModel: function() {
+			var oModel = new JSONModel({"IdMerci": []});
+			return oModel;
+		},
+
+        createCartGeneralModel: function() {
+			var oModel = new JSONModel({"Dati": []});
+			return oModel;
+		},
     };
 });

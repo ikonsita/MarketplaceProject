@@ -1,0 +1,31 @@
+<mvc:View controllerName="com.sap.marketplaceproject.controller.Cart"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+<Page 
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+
+    <List
+		items="{CartGeneralModel>/Dati}"
+		id="List2"
+		class="sapUiTinyMargin"
+		>
+					<headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>Shopping Cart}"/>
+            <ToolbarSpacer/>
+         </Toolbar>
+      </headerToolbar>
+		<ObjectListItem
+			title="{CartGeneralModel>DescMag}"
+			number="{
+				parts:[{path:'CartGeneralModel>PrezzoldMercMag'}],
+				type: 'sap.ui.model.type.Currency',
+				formatOptions: {showMeasure: false}
+			}"
+			numberUnit="EURO">
+		</ObjectListItem>
+	</List>
+	</Page>
+
+    </mvc:View>

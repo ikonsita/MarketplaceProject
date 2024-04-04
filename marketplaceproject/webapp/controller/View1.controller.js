@@ -30,6 +30,11 @@ sap.ui.define([
             onToPage2 : function () {
                 this.getOwnerComponent().getRouter().navTo("Page2");
             },
+            
+            onCart : function () {
+                this.getOwnerComponent().getRouter().navTo("Cart");
+            },
+
 
             onPress(oEvent) {
                 const oItem = oEvent.getSource();

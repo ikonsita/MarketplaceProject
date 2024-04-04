@@ -32,6 +32,10 @@ sap.ui.define([
 
                 this.setModel(models.createGeneralModel(), "GeneralModel");
 
+                this.setModel(models.createCartModel(), "CartModel");
+
+                this.setModel(models.createCartGeneralModel(), "CartGeneralModel");
+
             }
         });
     }

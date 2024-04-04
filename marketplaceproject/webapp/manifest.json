@@ -113,6 +113,13 @@
           "target": [
             "Product"
           ]
+        },
+        {
+          "name": "Cart",
+          "pattern": "Cart",
+          "target": [
+            "Cart"
+          ]
         }
       ],
       "targets": {
@@ -133,6 +140,12 @@
           "transition": "slide",
           "clearControlAggregation": false,
           "viewName": "Product"
+        },
+        "Cart": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "Cart"
         }
         
       }
