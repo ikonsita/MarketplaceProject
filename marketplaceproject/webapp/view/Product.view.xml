@@ -4,6 +4,7 @@
 	<Page
 		showNavButton="true"
 		navButtonPress=".onNavBack">
+		
 	<ObjectHeader
 		title="{GeneralModel>DescMag}"
 
@@ -13,10 +14,8 @@
 			formatOptions: {showMeasure: false}
 		}"
 		numberUnit="EUR"
-		class="sapUiResponsivePadding--header" 
-		icon="sap-icon://cart-3"
-		iconActive="true"
-		iconPress="onAddToCart"
+		
+		icon="sap-icon://product"
 		>
         <ObjectAttribute text="ID Prodotto: {GeneralModel>IdMerci}" />
 		<ObjectAttribute text="Quantità in magazzino: {GeneralModel>QuantdispMercMag}" />
@@ -24,7 +23,17 @@
 		<ObjectAttribute text="Peso: {GeneralModel>PesoMercMag}" />
         <ObjectAttribute text="Dimensione: {GeneralModel>DimMercMag}" />
         <ObjectAttribute text="Descrizione: {GeneralModel>NoteMercMag}" />
+		
 	</ObjectHeader>
+					<Button
+					id="BadgedButton"
+					class="sapUiMediumMargin"
+					icon="sap-icon://cart-3"
+					press="onAddToCart"
+					text="Aggiungi al carello">
+
+				</Button>
+	<Image src="{GeneralModel>Image}" class="sapUiMediumMarginBeginEnd" width="{/imageWidth}" />
     </Page>
 
 </mvc:View>

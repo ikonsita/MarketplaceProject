@@ -9,10 +9,13 @@
 		items="{CartGeneralModel>/Dati}"
 		id="List2"
 		class="sapUiTinyMargin"
+		mode="Delete"
+		delete="onDelete"
 		>
 					<headerToolbar>
          <Toolbar>
             <Title text="{i18n>Shopping Cart}"/>
+			<Button icon="sap-icon://synchronize" press=".onRefresh" />
             <ToolbarSpacer/>
          </Toolbar>
       </headerToolbar>

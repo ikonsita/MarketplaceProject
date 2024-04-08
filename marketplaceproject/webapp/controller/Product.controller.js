@@ -37,9 +37,9 @@ sap.ui.define([
             },
 
            onAddToCart(){
-                var merci = this.getOwnerComponent().getModel("CartModel").getProperty("/IdMerci");
-                console.log();
-                console.log(this.getOwnerComponent().getModel("CartModel"));
+                
+                var ID = [this.getOwnerComponent().getModel("GeneralModel").getBindings().filter(binding => binding.sPath === "IdMerci")[0].getValue()];
+                this.getOwnerComponent().getModel("CartModel").getProperty("/IdMerci").push(ID);
                 MessageToast.show('Product added to cart');
             }
         });

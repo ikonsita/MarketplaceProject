@@ -57,6 +57,5 @@ sap.ui.define([
                 oBinding.filter(aFilter);
             }
 
-
         });
     });

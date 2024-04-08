@@ -11,13 +11,17 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("com.sap.marketplaceproject.controller.Cart", {
+ 
             onInit: function() {     
                 var filters = [];
 
 			var IdMerci = this.getOwnerComponent().getModel("CartModel").getData().IdMerci;
-	
-			filters.push(new sap.ui.model.Filter("IdMerci", sap.ui.model.FilterOperator.EQ, IdMerci));
-
+	        if(IdMerci.length == 0){
+                filters.push(new sap.ui.model.Filter("IdMerci", sap.ui.model.FilterOperator.EQ, IdMerci));
+            }
+            for (var i = 0; i < IdMerci.length; i++) {
+			filters.push(new sap.ui.model.Filter("IdMerci", sap.ui.model.FilterOperator.EQ, IdMerci[i]));
+            }
 			this.getOwnerComponent().getModel().read("/MerciSet", {
 				filters: filters,
 				urlParameters: {},
@@ -31,6 +35,13 @@ sap.ui.define([
 			});
 
                    },
+
+                   onDelete: function(oEvent){
+                    console.log(oEvent);
+                    
+                   },
+
+                   onRefresh: function() { this.onInit();},
 
                    onNavBack() {
                     const oHistory = History.getInstance();
