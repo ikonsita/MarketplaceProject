@@ -14,7 +14,7 @@
 		>
 					<headerToolbar>
          <Toolbar>
-            <Title text="{i18n>Shopping Cart}"/>
+            <Title text="{i18n>Carrello}"/>
 			<Button icon="sap-icon://synchronize" press=".onRefresh" />
             <ToolbarSpacer/>
          </Toolbar>
@@ -29,6 +29,15 @@
 			numberUnit="EURO">
 		</ObjectListItem>
 	</List>
+	<footer>
+            <Bar>
+                <contentRight>
+                    <!-- Add buttons or other controls here -->
+					<Input  width="20%" editable="false" value="PREZZO TOTALE: {CartModel>/PrezzoTotale} EUR" />
+                    <Button text="Acquista" type="Accept" press="onBuy"/>
+                </contentRight>
+            </Bar>
+        </footer>
 	</Page>
 
     </mvc:View>

@@ -26,7 +26,7 @@ sap.ui.define([
 		},
 
         createCartModel: function() {
-			var oModel = new JSONModel({"IdMerci": []});
+			var oModel = new JSONModel({"IdMerci": [],  "PrezzoTotale": ''});
 			return oModel;
 		},
 
