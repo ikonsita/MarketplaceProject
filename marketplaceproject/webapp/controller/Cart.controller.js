@@ -45,7 +45,7 @@ sap.ui.define([
         
                         this.getOwnerComponent().getModel("CartModel").setProperty("/PrezzoTotale", totalPrice);
         
-                        console.log(this.getOwnerComponent().getModel("CartModel"));
+                        
                     }.bind(this),
                     error: function (error) { }.bind(this)
                 });
@@ -66,7 +66,7 @@ sap.ui.define([
 
                 this.getOwnerComponent().getModel("CartModel").setProperty("/PrezzoTotale", totalPrice);
 
-                console.log(this.getOwnerComponent().getModel("CartModel"));
+                
 
             },
 
@@ -89,9 +89,16 @@ sap.ui.define([
             },
             onBuy: function () {
                 var oModel = this.getOwnerComponent().getModel("CartModel");
+                var aData = oModel.getProperty("/IdMerci");
+                var iDataLength = aData.length;
+                if(iDataLength == 0){
+                    MessageToast.show('Nessun Prodotto nel Carrello');
+                }else{
+                
                 oModel.setProperty("/IdMerci", []);
                 MessageToast.show('Prodotti acquistati');
                 this.onInit();
+                }
             },
 
             onRefresh: function () { this.onInit(); },

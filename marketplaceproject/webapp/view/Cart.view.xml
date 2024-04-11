@@ -33,7 +33,7 @@
             <Bar>
                 <contentRight>
                     <!-- Add buttons or other controls here -->
-					<Input  width="20%" editable="false" value="PREZZO TOTALE: {CartModel>/PrezzoTotale} EUR" />
+					<Text text="PREZZO TOTALE: {CartModel>/PrezzoTotale} EUR" />
                     <Button text="Acquista" type="Accept" press="onBuy"/>
                 </contentRight>
             </Bar>
