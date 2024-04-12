@@ -120,6 +120,14 @@
           "target": [
             "Cart"
           ]
+        },
+
+        {
+          "name": "Order",
+          "pattern": "Order/{OrderPath}",
+          "target": [
+            "Order"
+          ]
         }
       ],
       "targets": {
@@ -146,6 +154,13 @@
           "transition": "slide",
           "clearControlAggregation": false,
           "viewName": "Cart"
+        },
+
+        "Order": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewName": "Order"
         }
         
       }

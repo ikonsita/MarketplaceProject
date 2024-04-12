@@ -36,6 +36,13 @@ sap.ui.define([
 
                 this.setModel(models.createCartGeneralModel(), "CartGeneralModel");
 
+                this.setModel(models.createOrderModel(), "OrderModel");
+
+                this.setModel(models.createOrderFilterModel(), "OrderFilterModel");
+
+                this.setModel(models.createGeneralOrderModel(), "GeneralOrderModel");
+
+
             }
         });
     }

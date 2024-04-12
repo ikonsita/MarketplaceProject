@@ -1,10 +1,20 @@
 <mvc:View controllerName="com.sap.marketplaceproject.controller.Profile"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
+	<Page
+		showNavButton="true"
+		navButtonPress=".onToPage1">
 
-
-
-				<Button text="To the first Page" press="onToPage1"/>
-			
+		<List headerText="Ordini"  items="{OrderModel>/Dati}" >
+		<CustomListItem type="Navigation" press="onPress">
+			<HBox>
+				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+					<Link text="{OrderModel>NumeroOrdine}" press=""/>
+					<Label text="{OrderModel>IdOrdine}"/>
+				</VBox>
+			</HBox>
+		</CustomListItem>
+	</List>
+	</Page>
 
 </mvc:View>

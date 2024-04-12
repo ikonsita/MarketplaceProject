@@ -34,5 +34,22 @@ sap.ui.define([
 			var oModel = new JSONModel({"Dati": []});
 			return oModel;
 		},
+
+        createOrderModel: function() {
+			var oModel = new JSONModel({"Dati": []});
+			return oModel;
+		},
+
+        createOrderFilterModel: function() {
+			var oModel = new JSONModel({"IdOrdine": ''});
+			return oModel;
+		},
+
+        createGeneralOrderModel: function() {
+			var oModel = new JSONModel({"Dati": []});
+			return oModel;
+		},
+
+
     };
 });

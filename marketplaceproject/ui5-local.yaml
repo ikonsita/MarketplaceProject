@@ -31,9 +31,9 @@ server:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
           - path: /sap
-            url: http://vhcala4hcivir:50000
+            url: http://virtualhost:50001
             client: '001'
-            destination: MyFirstConnection
+            destination: sap_onpremise
     - name: sap-fe-mockserver
       beforeMiddleware: csp
       configuration:
