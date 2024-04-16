@@ -29,6 +29,7 @@ sap.ui.define([
             onToPage1 : function () {
                 this.getOwnerComponent().getRouter().navTo("Page1");
             },
+            
             onPress(oEvent) {
                 var ID = this.getOwnerComponent().getModel("OrderModel").getBindings().filter(binding => binding.sPath === "IdOrdine")[0].getValue();
                 console.log(ID);

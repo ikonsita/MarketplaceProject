@@ -14,11 +14,10 @@ sap.ui.define([
             
                 var filters = [];
                 
-                const oRouter = this.getOwnerComponent().getRouter();
-                oRouter.getRoute("Order").attachPatternMatched(this.onObjectMatched, this);
 
+                console.log(this.getOwnerComponent().getModel("OrderModel").getProperty("/Dati"));
                 var ID = this.getOwnerComponent().getModel("OrderFilterModel").getData().IdOrdine;
-            
+                    
                     filters.push(new sap.ui.model.Filter("IdOrdine", sap.ui.model.FilterOperator.EQ, ID));
                 
                 this.getOwnerComponent().getModel().read("/MerciSet", {
@@ -33,9 +32,13 @@ sap.ui.define([
                     error: function (error) { }.bind(this)
                 });
 
+                const oRouter = this.getOwnerComponent().getRouter();
+                oRouter.getRoute("Order").attachPatternMatched(this.onObjectMatched, this);
+
             },
             onToPage1 : function () {
                 this.getOwnerComponent().getRouter().navTo("Page2");
+                
             },
 
             onObjectMatched(oEvent) {
@@ -44,6 +47,8 @@ sap.ui.define([
                     model: "OrderModel"
                 });
             },
+
+            onRefresh: function () { this.onInit(); },
 
             onFilterInvoices(oEvent) {
                 // build filter array

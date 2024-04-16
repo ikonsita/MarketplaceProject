@@ -44,6 +44,7 @@
                     <headerToolbar>
          <Toolbar>
             <Title text="{i18n>PRODOTTI}"/>
+			<Button icon="sap-icon://synchronize" press=".onRefresh" />
             <ToolbarSpacer/>
             <SearchField
                width="50%"
