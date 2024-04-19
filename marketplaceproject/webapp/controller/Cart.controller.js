@@ -3,12 +3,15 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/core/routing/History",
-    'sap/m/MessageToast'
+    "sap/m/MessageToast",
+    "sap/m/Dialog",
+
+
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator, History, MessageToast) {
+    function (Controller, Filter, FilterOperator, History, MessageToast, Dialog) {
         "use strict";
 
         return Controller.extend("com.sap.marketplaceproject.controller.Cart", {
@@ -29,14 +32,16 @@ sap.ui.define([
 
                     success: function (data) {
 
-                        this.getOwnerComponent().getModel("CartGeneralModel").setProperty("/Dati", data.results);
+                        this.getOwnerComponent().getModel("CartGeneralModel").setProperty("/Dati", data.results);   
+                        
                         var oModel = this.getOwnerComponent().getModel("CartGeneralModel");
 
 
                         var aItems = oModel.getProperty("/Dati");
                         
-        
+                        
                         var totalPrice = 0;
+        
         
         
                         aItems.forEach(function (item) {
@@ -45,28 +50,23 @@ sap.ui.define([
         
                         this.getOwnerComponent().getModel("CartModel").setProperty("/PrezzoTotale", totalPrice);
         
+                        var stringaConVirgola = totalPrice.toString().replace(/\./g, ',');
+        
+                        
+        
+                        var numeroDecimale = parseFloat(stringaConVirgola);
+        
+                        var numeroFormattato = numeroDecimale.toFixed(2);
+        
+                        this.getOwnerComponent().getModel("NewInvoiceModel").setProperty("/PrezzoTotale", numeroFormattato);
                         
                     }.bind(this),
                     error: function (error) { }.bind(this)
                 });
 
 
-                var oModel = this.getOwnerComponent().getModel("CartGeneralModel");
 
 
-                var aItems = oModel.getProperty("/Dati");
-                
-
-                var totalPrice = 0;
-
-
-                aItems.forEach(function (item) {
-                    totalPrice += parseFloat(item.PrezzoldMercMag);
-                });
-
-                this.getOwnerComponent().getModel("CartModel").setProperty("/PrezzoTotale", totalPrice);
-
-                
 
             },
 
@@ -87,19 +87,6 @@ sap.ui.define([
 
 
             },
-            onBuy: function () {
-                var oModel = this.getOwnerComponent().getModel("CartModel");
-                var aData = oModel.getProperty("/IdMerci");
-                var iDataLength = aData.length;
-                if(iDataLength == 0){
-                    MessageToast.show('Nessun Prodotto nel Carrello');
-                }else{
-                
-                oModel.setProperty("/IdMerci", []);
-                MessageToast.show('Prodotti acquistati');
-                this.onInit();
-                }
-            },
 
             onRefresh: function () { this.onInit(); },
 
@@ -114,5 +101,54 @@ sap.ui.define([
                     oRouter.navTo("Page1", {}, true);
                 }
             },
+
+            onNewInvoice: function() {
+
+                var oModel = this.getOwnerComponent().getModel("CartModel");
+                var aData = oModel.getProperty("/IdMerci");
+                var iDataLength = aData.length;
+                if(iDataLength == 0){
+                    MessageToast.show('Nessun Prodotto nel Carrello');
+                }else{
+                
+
+                
+                this.oDialog ??= this.loadFragment({
+                    name: "com.sap.marketplaceproject.view.fragment.buy"
+                });
+ 
+                this.oDialog.then((lDialog) => lDialog.open());
+            }
+            },
+            onSaveNewInvoice: function() {
+
+                var that = this;
+
+                
+                var newInvoice = this.getOwnerComponent().getModel("NewInvoiceModel").getData();
+                
+                
+                this.getOwnerComponent().getModel().create("/OrdineSet",  newInvoice, {
+                    method: "POST",
+                    success: function(data) {
+                       
+                        console.log(newInvoice)
+                        that.getView().byId("NewInvoice").close();
+                        MessageToast.show('Prodotti acquistati!');                       
+                    }.bind(this),
+                    error: function(error) {}.bind(this)
+                });
+                var oModel = this.getOwnerComponent().getModel("CartModel");
+                oModel.setProperty("/IdMerci", []);
+                MessageToast.show('Prodotti acquistati');
+                this.onInit();
+
+
+ 
+            },
+ 
+            onCloseNewInvoiceDialog: function() {
+                this.getView().byId("NewInvoice").close();
+            }
         });
     });

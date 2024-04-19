@@ -37,10 +37,13 @@ sap.ui.define([
             },
 
            onAddToCart(){
-                
+                var disp = this.getOwnerComponent().getModel("GeneralModel").getBindings().filter(binding => binding.sPath === "DispMercMag")[0].getValue();
+                if(disp == "NO"){
+                    MessageToast.show('Prodotto non disponibile');
+                }else{                
                 var ID = [this.getOwnerComponent().getModel("GeneralModel").getBindings().filter(binding => binding.sPath === "IdMerci")[0].getValue()];
                 this.getOwnerComponent().getModel("CartModel").getProperty("/IdMerci").push(ID);
-                MessageToast.show('Prodotto aggiunto al carrello');
+                MessageToast.show('Prodotto aggiunto al carrello');}
             }
         });
     });

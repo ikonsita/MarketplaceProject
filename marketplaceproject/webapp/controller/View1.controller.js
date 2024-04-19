@@ -1,12 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+	"sap/ui/model/FilterOperator",
+    '../Formatter',
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, Filter, FilterOperator) {
+    function (Controller, Filter, FilterOperator, Formatter) {
         "use strict";
 
         return Controller.extend("com.sap.marketplaceproject.controller.View1", {

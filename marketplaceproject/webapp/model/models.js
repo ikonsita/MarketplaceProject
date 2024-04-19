@@ -34,5 +34,10 @@ sap.ui.define([
 			var oModel = new JSONModel({"Dati": []});
 			return oModel;
 		},
+        createNewInvoiceModel: function() {
+			var oModel = new JSONModel({"NumeroOrdine": '00001', "Categoria": '', "IndirizzoConsegna": '', "DettaglioOrdine":'', "DataOrdine": new Date(),"IndirizzoPartenza": 'Magazzini Ikons',"Stato": 'SPEDIZIONE', "PrezzoTotale": '', "IdFornitore": '1',"IdCliente": '1'});
+			return oModel;
+		},
+        
     };
 });

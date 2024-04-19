@@ -36,6 +36,8 @@ sap.ui.define([
 
                 this.setModel(models.createCartGeneralModel(), "CartGeneralModel");
 
+                this.setModel(models.createNewInvoiceModel(), "NewInvoiceModel");
+
             }
         });
     }
