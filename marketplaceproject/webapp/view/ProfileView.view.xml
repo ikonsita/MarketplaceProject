@@ -21,7 +21,7 @@
 			</Avatar>
 		</tnt:ToolHeader>
 		
-		<List headerText="Ordini"  items="{OrderModel>/Dati}" >
+		<List headerText="Ordini Effettuati"  items="{OrderModel>/Dati}" >
 		<CustomListItem type="Navigation" press="onPress">
 			<HBox>
 				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
