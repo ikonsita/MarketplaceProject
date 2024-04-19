@@ -11,7 +11,10 @@
 		class="sapUiTinyMargin"
 		mode="Delete"
 		delete="onDelete"
+		growing="true"
+		growingThreshold="10"
 		>
+		
 					<headerToolbar>
          <Toolbar>
             <Title text="{i18n>Carrello}"/>
@@ -33,8 +36,8 @@
             <Bar>
                 <contentRight>
                     <!-- Add buttons or other controls here -->
-					<Text text="PREZZO TOTALE: {CartModel>/PrezzoTotale} EUR" />
-                    <Button text="Acquista" type="Accept" press="onBuy"/>
+					<Text text="PREZZO TOTALE: {path: 'CartModel>/PrezzoTotale', formatter: 'com.sap.marketplaceproject.formatter.onInit'} EUR" />
+                    <Button text="Acquista" type="Accept" press="onNewInvoice"/>
                 </contentRight>
             </Bar>
         </footer>

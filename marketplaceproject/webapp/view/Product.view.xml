@@ -8,15 +8,19 @@
 	<ObjectHeader
 		title="{GeneralModel>DescMag}"
 
-		number="{
-			parts:[{path:'GeneralModel>PrezzoldMercMag'}],
-			type: 'sap.ui.model.type.Currency',
-			formatOptions: {showMeasure: false}
-		}"
+		number="{path: 'GeneralModel>PrezzoldMercMag', formatter: '..formatter'}"
 		numberUnit="EUR"
-		
 		icon="sap-icon://product"
 		>
+
+					<statuses>
+				<ObjectStatus
+					text="{GeneralModel>DispMercMag}"
+					state="{
+						path: 'Status',
+						formatter: 'com.sap.marketplaceproject.Formatter.status'
+					}" />
+			</statuses>
         <ObjectAttribute text="ID Prodotto: {GeneralModel>IdMerci}" />
 		<ObjectAttribute text="Quantità in magazzino: {GeneralModel>QuantdispMercMag}" />
 		<ObjectAttribute text="Categoria: {GeneralModel>CategMercMag}" />

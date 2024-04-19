@@ -36,12 +36,16 @@ sap.ui.define([
 
                 this.setModel(models.createCartGeneralModel(), "CartGeneralModel");
 
+<<<<<<< HEAD
                 this.setModel(models.createOrderModel(), "OrderModel");
 
                 this.setModel(models.createOrderFilterModel(), "OrderFilterModel");
 
                 this.setModel(models.createGeneralOrderModel(), "GeneralOrderModel");
 
+=======
+                this.setModel(models.createNewInvoiceModel(), "NewInvoiceModel");
+>>>>>>> HomeMarketlace
 
             }
         });

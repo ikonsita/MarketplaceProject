@@ -34,6 +34,7 @@ sap.ui.define([
 			var oModel = new JSONModel({"Dati": []});
 			return oModel;
 		},
+<<<<<<< HEAD
 
         createOrderModel: function() {
 			var oModel = new JSONModel({"Dati": []});
@@ -51,5 +52,12 @@ sap.ui.define([
 		},
 
 
+=======
+        createNewInvoiceModel: function() {
+			var oModel = new JSONModel({"NumeroOrdine": '00001', "Categoria": '', "IndirizzoConsegna": '', "DettaglioOrdine":'', "DataOrdine": new Date(),"IndirizzoPartenza": 'Magazzini Ikons',"Stato": 'SPEDIZIONE', "PrezzoTotale": '', "IdFornitore": '1',"IdCliente": '1'});
+			return oModel;
+		},
+        
+>>>>>>> HomeMarketlace
     };
 });

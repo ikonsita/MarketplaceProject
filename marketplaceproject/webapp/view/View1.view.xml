@@ -26,6 +26,8 @@
 		headerText="Products"
 		id="List1"
 		class="sapUiTinyMargin"
+		growing="true"
+		growingThreshold="10"
 		>
 					<headerToolbar>
          <Toolbar>
@@ -42,12 +44,20 @@
 			               
                 press=".onPress" 
 			number="{
-				parts:[{path:'GeneralModel>PrezzoldMercMag'}],
-				type: 'sap.ui.model.type.Currency',
-				formatOptions: {showMeasure: false}
+			parts: [{path: 'GeneralModel>PrezzoldMercMag'}],
+			formatter: 'com.sap.marketplaceproject.Formatter',
+			type: 'sap.ui.model.type.Currency',
+			formatOptions: {showMeasure: false}
 			}"
 			numberUnit="EURO">
-
+			<firstStatus>
+				<ObjectStatus
+					text="{GeneralModel>DispMercMag}"
+					state="{
+						path: 'Status',
+						formatter: 'com.sap.marketplaceproject.Formatter.status'
+					}" />
+			</firstStatus>
 			<ObjectAttribute text="Quantita disponibile: {GeneralModel>QuantdispMercMag}" />
 			<ObjectAttribute text="Descrizione: {GeneralModel>NoteMercMag}" />
 		</ObjectListItem>
